@@ -15,11 +15,6 @@
       "src": "/",
       "dest": "/index.js",
       "methods": ["GET"]
-    },
-    {
-      "src": "/categorias",
-      "dest": "/index.js",
-      "methods": ["GET"]
     }
   ]
 }
