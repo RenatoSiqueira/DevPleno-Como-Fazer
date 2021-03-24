@@ -1,6 +1,7 @@
+require('dotenv').config()
 const axios = require('axios')
 const baseURL = 'https://como-fazer-devpleno-lab.firebaseio.com/'
-const auth = ''
+const auth = process.env.KEY
 
 const list = async key => {
   const content = await axios.get(baseURL + key + '.json?auth=' + auth)
