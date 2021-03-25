@@ -14,9 +14,10 @@ const nova = async (req, res) => {
 }
 
 const list = async (req, res) => {
+  const categorias = await api.list('categorias')
   const categoria = req.params.categoria
   const publicacoes = await api.list('publicacoes/' + categoria)
-  res.render('publicacoes/index', { publicacoes, categoria })
+  res.render('publicacoes/index', { publicacoes, categoria, categorias })
 }
 
 const excluir = async (req, res) => {
@@ -25,10 +26,12 @@ const excluir = async (req, res) => {
 }
 
 const editarForm = async (req, res) => {
+  const categorias = await api.list('categorias')
   const publicacao = await api.get('publicacoes/' + req.params.categoria, req.params.id)
   res.render('publicacoes/editar', {
     publicacao,
-    categoria: req.params.categoria
+    categoria: req.params.categoria,
+    categorias
   })
 }
 

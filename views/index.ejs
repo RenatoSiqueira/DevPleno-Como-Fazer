@@ -1,3 +1,31 @@
 <%- include('header') %>
+<div class="mt-3 container">
 
+  <div class='mt-5 mb-3'>
+    <div class="card text-center">
+      <div class="card-header">
+        SOBRE
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Projeto Como Fazer</h5>
+        <p class="card-text">
+          Foi um Evento Gratuito de Formação de Novos Desenvolvedores FullStack, que inicia pelo funcionamento/conceitos básicos até uma aplicação funcional acessível via web.
+        </p>
+      </div>
+      <div class="card-footer text-muted">
+        <a href="https://devpleno.com/" target="_blank">@Devpleno</a>
+      </div>
+    </div>
+  </div>
+
+  <% categorias.forEach(cat => { %>
+  <div class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title"><%= cat.categoria %></h5>
+      <a href="/publicacoes/categoria/<%= cat.id %>" class="card-link">Listar Categoria</a>
+      <a href="/publicacoes/nova" class="card-link">Adicionar Publicação</a>
+    </div>
+  </div>
+  <% }) %>
+</div>
 <%- include('footer') %>   

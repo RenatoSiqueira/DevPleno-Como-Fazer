@@ -1,18 +1,20 @@
 <%- include('../header') %>
-<form method="POST" action="/publicacoes/nova">
-  <label for="titulo">Título</label>
-    <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Digite o Título">
-  </div>
-  <label for="categoria">Categoria</label>
-  <select id="categoria" name="categoria" class="form-control">
-    <% categorias.forEach( categoria => { %>
-      <option value="<%= categoria.id %>"><%= categoria.categoria %></option>
-    <% }) %>
-  </select>
-  </div>
-  <label for="conteudo">Conteúdo</label>
-    <textarea type="text" class="form-control" id="conteudo" name="conteudo" placeholder="Digite o Conteúdo"></textarea>
-  </div>
-  <button type="submit" class="btn btn-primary">Salvar</button>
-</form>
+<div class="mt-3 container">
+  <form method="POST" action="/publicacoes/nova">
+    <div class="mb-3">
+      <label for="titulo">Título</label>
+      <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Digite o Título">
+    </div>
+    <div class="mb-3">
+      <label for="categoria">Categoria</label>
+      <select id="categoria" name="categoria"  class="form-select">
+        <% categorias.forEach( categoria => { %>
+          <option value="<%= categoria.id %>"><%= categoria.categoria %></option>
+        <% }) %>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <a class="btn btn-outline-dark" href="/categorias" role="button">Cancelar</a>
+  </form>
+</div>
 <%- include('../footer') %>

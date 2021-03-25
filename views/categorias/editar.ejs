@@ -1,9 +1,12 @@
 <%- include('../header') %>
-<form method="POST" action="/categorias/editar/<%= categoria.id %>">
-  <div class="form-group">
-    <label for="categoria">Categoria</label>
-    <input type="text" class="form-control" id="categoria" name="categoria" placeholder="Digite a categoria" value="<%= categoria.categoria %>">
-  </div>
-  <button type="submit" class="btn btn-primary">Salvar</button>
-</form>
+<div class='mt-3 container'>
+  <form method="POST" action="/categorias/editar/<%= categoria.id %>">
+    <div class="mb-3">
+      <label for="categoria">Categoria</label>
+      <input type="text" class="form-control" id="categoria" name="categoria" placeholder="Digite a categoria" value="<%= categoria.categoria %>">
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <a class="btn btn-outline-dark" href="/categorias" role="button">Cancelar</a>
+  </form>
+</div>
 <%- include('../footer') %>

@@ -1,7 +1,8 @@
 const api = require('../api')
 
-const novaForm = (req, res) => {
-  res.render('categorias/nova')
+const novaForm = async (req, res) => {
+  const categorias = await api.list('categorias')
+  res.render('categorias/nova', { categorias })
 }
 
 const nova = async (req, res) => {
@@ -21,8 +22,9 @@ const excluir = async (req, res) => {
 }
 
 const editarForm = async (req, res) => {
+  const categorias = await api.list('categorias')
   const categoria = await api.get('categorias', req.params.id)
-  res.render('categorias/editar', { categoria })
+  res.render('categorias/editar', { categoria, categorias })
 }
 
 const editar = async (req, res) => {

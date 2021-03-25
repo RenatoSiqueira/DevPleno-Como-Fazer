@@ -4,6 +4,8 @@ const axios = require('axios')
 const bodyParser = require('body-parser')
 const path = require('path')
 
+const api = require('./api')
+
 const categorias = require('./routes/categorias')
 const publicacoes = require('./routes/publicacoes')
 
@@ -14,7 +16,8 @@ app.use(bodyParser.urlencoded())
 const port = process.env.PORT || 3000
 
 app.get('/', async (request, response) => {
-  response.render('index')
+  const categorias = await api.list('categorias')
+  response.render('index', { categorias })
 })
 
 app.use('/categorias', categorias)
